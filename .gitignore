@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
 # Distribution / packaging
 .Python
 build/
@@ -153,6 +160,33 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

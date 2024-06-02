@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  db:
+    container_name: ir-db
+    image: postgres:13.0-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  backend:
+    container_name: ir-backend
+    build: .
+    restart: always
+    volumes:
+      - static_value:/app/static/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+volumes:
+  static_value:
+  pg_data:
